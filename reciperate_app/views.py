@@ -13,6 +13,9 @@ def lunch(request):
 def dinner(request):
     return HttpResponse("Dinner")
 
+def add_recipe(request):
+    return HttpResponse("Add Recipe")
+
 def signup(request):
     return HttpResponse("Create Account")
 
