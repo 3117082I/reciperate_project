@@ -14,7 +14,7 @@ def dinner(request):
     return HttpResponse("Dinner")
 
 def signup(request):
-    return HttpResponse("Sign Up")
+    return HttpResponse("Create Account")
 
 def signin(request):
-    return HttpResponse("Create Account")
+    return HttpResponse("Sign in")
