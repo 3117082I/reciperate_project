@@ -27,9 +27,9 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.name
+        return self.user.username
 
-class Likes(models.Model):
+class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='liked_recipes')
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='likes')
     liked_time = models.DateTimeField(auto_now_add=True)
