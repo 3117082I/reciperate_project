@@ -5,7 +5,34 @@ def index(request):
     return HttpResponse("Reciperate Home Page")
 
 def breakfast(request):
-    return HttpResponse("Breakfast")
+    #recipes = Recipe.objects.filter(category="breakfast").order_by('-likes')
+    # this commented code should work once the models are sorted out. For now, I'm just using dummy data - Hafsa
+
+    recipes = [
+        {
+            "image": "",
+            "url": "#",
+            "likes": 0,
+        },
+        {
+            "image": "",
+            "url": "#",
+            "likes": 0,
+        },
+        {
+            "image": "",
+            "url": "#",
+            "likes": 0,
+        },
+        {
+            "image": "",
+            "url": "#",
+            "likes": 0,
+        },
+    ]
+
+
+    return render(request, "breakfast.html", {"recipes:recipes"})
 
 def lunch(request):
     return HttpResponse("Lunch")

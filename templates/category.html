@@ -5,15 +5,15 @@
 <div class = "recipe_grid">
     {%  for recipe in recipes %}
 
-    <div class=" "recipe_individual"></div>
-<img src="{{ recipe.image.url }}" >
+    <div class="recipe_individual"></div>
+<img src="https://via.placeholderimagewillfixlater.com" >
 <p>Recipe URL:</p>
 <a href="{{  recipe.url }}"> {{  recipe.url }}</a>
 
 <p> {{ recipe.likes }} </p> Likes </p>
 {%if user.is_authenticated %}
 <button class = like_button">Like</button>
-{% end if %}
+{% endif %}
 </div>
 {% endfor %}
 </div>
