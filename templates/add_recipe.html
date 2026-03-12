@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><title>Add a Recipe</title></head>
+<body>
+
+<h1>Add a Recipe</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>Recipe Title:</label>
+    {{ form.name }}<br><br>
+
+    <label>Recipe URL:</label>
+    {{ form.url }}<br><br>
+
+    <label>Category:</label>
+    {{ form.category }}<br><br>
+
+    <label>Add Image:</label>
+    {{ form.image }}<br><br>
+
+    <button type="submit">Add Recipe</button>
+</form>
+
+</body>
+</html>
