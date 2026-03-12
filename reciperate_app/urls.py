@@ -2,6 +2,7 @@ from django.urls import path
 from reciperate_app import views
 
 app_name = 'reciperate'
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('breakfast/', views.breakfast, name='breakfast'),
@@ -9,5 +10,5 @@ urlpatterns = [
     path('dinner/', views.dinner, name='dinner'),
     path('add-recipe/', views.add_recipe, name='add_recipe'),
     path('sign-up/', views.signup, name='signup'),
-    path('sign-in/', views.signin, name='about')
+    path('sign-in/', views.signin, name='signin')
 ]

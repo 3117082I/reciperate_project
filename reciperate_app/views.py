@@ -5,19 +5,19 @@ from .forms import RecipeForm
 # Create your views here.
 def index(request):
     context_dict = {}
-    return render(request, 'index.html',context=context_dict)
+    return render(request, 'reciperate_app/index.html',context=context_dict)
 
 def breakfast(request):
     context_dict = {}
-    return render(request, 'breakfast.html',context=context_dict)
+    return render(request, 'reciperate_app/breakfast.html',context=context_dict)
 
 def lunch(request):
     context_dict = {}
-    return render(request, 'lunch.html', context=context_dict)
+    return render(request, 'reciperate_app/lunch.html', context=context_dict)
 
 def dinner(request):
     context_dict = {}
-    return render(request, 'dinner.html', context=context_dict)
+    return render(request, 'reciperate_app/dinner.html', context=context_dict)
 
 def add_recipe(request):
     if request.method == 'POST':
@@ -29,12 +29,12 @@ def add_recipe(request):
             form = RecipeForm()
     else:
         form = RecipeForm()
-    return render(request, 'add_recipe.html', {'form': form})
+    return render(request, 'reciperate_app/add_recipe.html', {'form': form})
 
 def signup(request):
     context_dict = {}
-    return render(request, 'sign_up.html', context=context_dict)
+    return render(request, 'reciperate_app/sign_up.html', context=context_dict)
 
 def signin(request):
     context_dict = {}
-    return render(request, 'sign_in.html', context=context_dict)
+    return render(request, 'reciperate_app/sign_in.html', context=context_dict)
