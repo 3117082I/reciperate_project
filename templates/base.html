@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 
 {% load staticfiles %}
-{% load reciperate_template_tags %}
 <html>
 <head>
     <title>
         Reciperate{% block title_block %} {% endblock %}</title>
-    <link rel = "stylesheet" href=" "{static 'css/style.css' %}">
+    <link rel = "stylesheet" href="{ % static 'css/style.css' %}">
 </head>
 <body>
 <div class="navbar">
@@ -21,6 +20,7 @@
     {% else %}
     <a href = "{% url 'sign_in' %}">Sign in</a>
     <a href = "{% url 'sign_up' %}">Sign up</a>
+    {% endif %}
 </div>
 
 {% block body_block %}

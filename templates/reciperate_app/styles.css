@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: peachpuff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: cream;
+}
+
+ul li {
+  float: left;
+}
+
+ul li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: black;
+}
+main {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+

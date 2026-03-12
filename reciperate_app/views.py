@@ -4,43 +4,20 @@ from django.contrib.auth.decorators import login_required
 from .forms import RecipeForm
 # Create your views here.
 def index(request):
-    return HttpResponse("Reciperate Home Page")
+    context_dict = {}
+    return render(request, 'index.html',context=context_dict)
 
 def breakfast(request):
-    #recipes = Recipe.objects.filter(category="breakfast").order_by('-likes')
-    # this commented code should work once the models are sorted out. For now, I'm just using dummy data - Hafsa
-
-    recipes = [
-        {
-            "image": "",
-            "url": "#",
-            "likes": 0,
-        },
-        {
-            "image": "",
-            "url": "#",
-            "likes": 0,
-        },
-        {
-            "image": "",
-            "url": "#",
-            "likes": 0,
-        },
-        {
-            "image": "",
-            "url": "#",
-            "likes": 0,
-        },
-    ]
-
-
-    return render(request, "breakfast.html", {"recipes:recipes"})
+    context_dict = {}
+    return render(request, 'breakfast.html',context=context_dict)
 
 def lunch(request):
-    return HttpResponse("Lunch")
+    context_dict = {}
+    return render(request, 'lunch.html', context=context_dict)
 
 def dinner(request):
-    return HttpResponse("Dinner")
+    context_dict = {}
+    return render(request, 'dinner.html', context=context_dict)
 
 def add_recipe(request):
     if request.method == 'POST':
@@ -55,7 +32,9 @@ def add_recipe(request):
     return render(request, 'add_recipe.html', {'form': form})
 
 def signup(request):
-    return HttpResponse("Create Account")
+    context_dict = {}
+    return render(request, 'sign_up.html', context=context_dict)
 
 def signin(request):
-    return HttpResponse("Sign in")
+    context_dict = {}
+    return render(request, 'sign_in.html', context=context_dict)
