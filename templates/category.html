@@ -1,20 +1,20 @@
 
 {% extends "base.html" %}
 
-{% block content %}
-<div class = "recipe_grid">
-    {%  for recipe in recipes %}
+{% block body_block %}
+    <div class = "recipe_grid">
+        {%  for recipe in recipes %}
 
-    <div class="recipe_individual"></div>
-<img src="https://via.placeholderimagewillfixlater.com" >
-<p>Recipe URL:</p>
-<a href="{{  recipe.url }}"> {{  recipe.url }}</a>
+            <div class="recipe_individual">
+                <img src="https://via.placeholder.com/200" >
+                <p>Recipe URL:</p>
+                <a href="{{  recipe.url }}"> {{  recipe.url }}</a>
 
-<p> {{ recipe.likes }} </p> Likes </p>
-{%if user.is_authenticated %}
-<button class = like_button">Like</button>
-{% endif %}
-</div>
-{% endfor %}
-</div>
+                <p> {{ recipe.likes.count }} Likes </p>
+                {%if user.is_authenticated %}
+                    <button class = "like_button">Like</button>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
