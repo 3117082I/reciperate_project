@@ -1,5 +1,7 @@
 from django import forms
-from reciperate_app import SignUp, SignIn
+from .models import Recipe
 
-class SignUp(forms.ModelForm):
-    username = forms.CharField(max_length= 128)
+class RecipeForm(forms.ModelForm):
+    class Meta:
+        model = Recipe
+        fields = ['name', 'url', 'category', 'image']
