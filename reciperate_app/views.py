@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .forms import RecipeForm
 from.models import Recipe
+from django.contrib.auth import authenticate, login
+
 # Create your views here.
 def index(request):
     context_dict = {}
-    return render(request, 'reciperate_app/home.html',context=context_dict)
+    return render(request, 'reciperate_app/index.html',context=context_dict)
 
 def breakfast(request):
     recipes = Recipe.objects.filter(category='breakfast').order_by('-created_at')
@@ -36,12 +39,34 @@ def add_recipe(request):
     return render(request, 'reciperate_app/add_recipe.html', {'form': form})
 
 def sign_up(request):
-    context_dict = {}
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('sign_in')
+    else:
+        form = SignUpForm()
+    context_dict = {'form': form}
     return render(request, 'reciperate_app/sign_up.html', context=context_dict)
 
 def sign_in(request):
-    context_dict = {}
-    return render(request, 'reciperate_app/sign_in.html', context=context_dict)
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user:
+            if user_is_active:
+                login(request, user)
+                return redirect(reverse('index'))
+            else:
+                return HttpResponse("Your account is disabled.")
+        else:
+            print(f"Invalid login details: {username}, {password}")
+            return HttpResponse("Invalid login details supplied.")
+    else:
+        return render(request, 'reciperate_app/sign_in.html')
+
+    return render(request, 'reciperate_app/sign_in.html')
 
 def sign_out(request):
     context_dict = {}
