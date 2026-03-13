@@ -4,7 +4,6 @@ from reciperate_app import views
 app_name = 'reciperate'
 
 urlpatterns = [
-    path('', views.home, name='home'),
     path('breakfast/', views.breakfast, name='breakfast'),
     path('lunch/', views.lunch, name='lunch'),
     path('dinner/', views.dinner, name='dinner'),
