@@ -2,7 +2,34 @@
 {% load staticfiles %}
 
 {% block body_block %}
-<div>
-    <p>Home test</p>
+
+<div class="home-wrapper">
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Reciperate</h1>
+            <p>Discover, share, and save recipes you actually want to make.</p>
+            <a href="{% url 'reciperate:sign_up' %}" class="hero-button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="welcome-card">
+        <div class="welcome-image">
+            <img src="{% static 'images/hero-food.jpg' %}" alt="Delicious food">
+        </div>
+
+        <div class="welcome-text">
+            <h2>Welcome to our recipe website</h2>
+            <p>
+                Explore recipes for breakfast, lunch, and dinner. Upload your own favourites,
+                save the dishes you love, and build your own little corner of the internet for food.
+            </p>
+            <p>
+                Whether you want quick weekday meals or something worth showing off, Reciperate
+                helps you keep everything in one place.
+            </p>
+        </div>
+    </section>
+
 </div>
 {% endblock %}
