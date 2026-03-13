@@ -15,11 +15,13 @@ def breakfast(request):
     return render(request, 'reciperate_app/breakfast.html',context=context_dict)
 
 def lunch(request):
-    context_dict = {}
-    return render(request, 'reciperate_app/lunch.html', context=context_dict)
+    recipes = Recipe.objects.filter(category='lunch').order_by('-created_at')
+    context_dict = {'recipes': recipes}
+    return render(request, 'reciperate_app/lunch.html',context=context_dict)
 
 def dinner(request):
-    context_dict = {}
+    recipes = Recipe.objects.filter(category='dinner').order_by('-created_at')
+    context_dict = {'recipes': recipes}
     return render(request, 'reciperate_app/dinner.html', context=context_dict)
 
 @login_required
