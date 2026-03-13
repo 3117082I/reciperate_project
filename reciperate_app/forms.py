@@ -7,11 +7,11 @@ class SignUpForm(forms.ModelForm):
 
     class Meta:
         model = User
-        field = ('username', 'password')
+        fields = ('username', 'password')
 
 class SignInForm(forms.Form):
     username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput()
+    password = forms.CharField(widget=forms.PasswordInput())
 
 
 
