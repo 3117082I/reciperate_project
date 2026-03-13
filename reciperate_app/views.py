@@ -7,7 +7,7 @@ from.models import Recipe
 # Create your views here.
 def index(request):
     context_dict = {}
-    return render(request, 'reciperate_app/index.html',context=context_dict)
+    return render(request, 'reciperate_app/home.html',context=context_dict)
 
 def breakfast(request):
     recipes = Recipe.objects.filter(category='breakfast').order_by('-created_at')
