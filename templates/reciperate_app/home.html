@@ -1,13 +1,19 @@
 {% extends 'reciperate_app/base.html' %}
 {% load staticfiles %}
 
+{% block title_block %}
+    Reciperate
+{% endblock %}
+
 {% block body_block %}
 
 <div class="home-wrapper">
 
     <section class="hero-section">
         <div class="hero-content">
+            <header>
             <h1>Reciperate</h1>
+            </header>
             <p>Discover, share, and save recipes you actually want to make.</p>
             <a href="{% url 'reciperate:sign_up' %}" class="hero-button">Get Started</a>
         </div>
