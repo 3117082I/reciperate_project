@@ -11,5 +11,6 @@ urlpatterns = [
     path('add-recipe/', views.add_recipe, name='add_recipe'),
     path('sign-up/', views.sign_up, name='sign_up'),
     path('sign-in/', views.sign_in, name='sign_in'),
-    path('sign-out/', views.sign_in, name='sign_out')
+    path('sign-out/', views.sign_in, name='sign_out'),
+    path('home/', views.home, name='home')
 ]

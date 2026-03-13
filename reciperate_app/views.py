@@ -46,3 +46,7 @@ def sign_in(request):
 def sign_out(request):
     context_dict = {}
     return render(request, 'reciperate_app/sign_out.html', context=context_dict)
+
+def home(request):
+    context_dict = {}
+    return render(request, 'reciperate_app/home.html', context=context_dict)
