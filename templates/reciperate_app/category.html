@@ -6,7 +6,7 @@
         {%  for recipe in recipes %}
 
             <div class="recipe_individual">
-                <img src="https://via.placeholder.com/200" >
+                <img src="{{ recipe.image.url }}" >
                 <p>Recipe URL:</p>
                 <a href="{{  recipe.url }}"> {{  recipe.url }}</a>
 

@@ -1,8 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head><title>Add a Recipe</title></head>
-<body>
+{% extends 'reciperate_app/base.html' %}
 
+{% block title_block %}
+    Add a Recipe
+{% endblock %}
+
+{% block body_block %}
 <h1>Add a Recipe</h1>
 
 <form method="post" enctype="multipart/form-data">
@@ -22,6 +24,4 @@
 
     <button type="submit">Add Recipe</button>
 </form>
-
-</body>
-</html>
+{% endblock %}
