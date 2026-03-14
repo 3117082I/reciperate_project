@@ -4,12 +4,12 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .forms import RecipeForm
-from.models import Recipe
+from .models import Recipe
 from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def breakfast(request):
-    recipes = Recipe.objects.filter(category='breakfast').order_by('-created_at')
+    recipes = Recipe.objects.all()
     context_dict = {'recipes': recipes}
     return render(request, 'reciperate_app/breakfast.html',context=context_dict)
 
@@ -63,8 +63,6 @@ def sign_in(request):
             return HttpResponse("Invalid login details supplied.")
     else:
         return render(request, 'reciperate_app/sign_in.html')
-
-    return render(request, 'reciperate_app/sign_in.html')
 
 def sign_out(request):
     context_dict = {}

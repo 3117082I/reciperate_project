@@ -1,10 +1,9 @@
-{% extends 'reciperate_app/category.html' %}
+{% extends "reciperate_app/category.html" %}
 {% load staticfiles %}
 
 {% block title_block %}
     Breakfast
 {% endblock %}
-
 
 {% block body_block %}
     <header class= "categoryHeader">
@@ -15,6 +14,7 @@
         <img src="{% static '../static/images/BreakfastGif1.gif' %}" alt="BreakfastGif1 GIF" class="header-gif">
         <img src="{% static '../static/images/BreakfastGif2.gif' %}" alt="BreakfastGif2 GIF" class="header-gif">
         <img src="{% static '../static/images/BreakfastGif3.gif' %}" alt="BreakfastGif3 GIF" class="header-gif">
-
     </header>
+
+    {{ block.super }}
 {% endblock %}

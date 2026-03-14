@@ -1,14 +1,16 @@
-
 {% extends "reciperate_app/base.html" %}
 
 {% block body_block %}
     <div class = "recipe_grid">
-        {%  for recipe in recipes %}
+        {% for recipe in recipes %}
             <div class="recipe_individual">
                 <img src="{{ recipe.image.url }}" >
+                <p>{{ recipe.name }}</p>
+
                 <p>Recipe URL:</p>
                 <a href="{{  recipe.url }}"> {{  recipe.url }}</a>
-                <p> {{ recipe.like_count }}Likes </p>
+                <p> {{ recipe.like_count }} Likes </p>
+
                 {%if user.is_authenticated %}
                     <button class = "like_button">Like</button>
                 {% endif %}

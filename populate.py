@@ -24,7 +24,7 @@ def create_recipe(user, name, url, category, image=None):
         defaults={
             'url': url,
             'category': category,
-            'image': image,
+            'image': 'recipe_images/default.jpg',
         }
     )
     return recipe
