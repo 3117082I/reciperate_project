@@ -6,12 +6,14 @@
 {% endblock %}
 
 {% block body_block %}
-<h1>Sign In</h1>
+        <header class= "signHeader">
+            <h1>Sign In</h1>
+        </header>
 <form method="post" action="{% url 'reciperate:sign_in' %}">
     {% csrf_token %}
     Username: <input type="text" name="username" size="50" />
     <br />
-    Passwrod: <input type="password" name="password" size="50" />
+    Password: <input type="password" name="password" size="50" />
     <br />
     <input type="submit" value="Sign In" />
 

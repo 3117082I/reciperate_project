@@ -1,63 +1,79 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Georgia", serif;
     background: burlywood;
     text-align: center;
-
-
     background-image: url('../images/BackgroundDots.jpg');
     background-repeat: repeat;
-
-
-    h1 {
-        font-size: 55px;
-        color: darkred;
-        font-family: serif;
-        text-align: center;
-        font-style: italic;
-    }
-
 }
 
+h1 {
+    font-size: 55px;
+    color: #6b2d2d;
+    text-align: center;
+    font-style: italic;
+}
+
+h2 {
+    color: darkred;
+    text-align: center;
+}
 
 header {
-    display:block;
+    margin: 40px auto;
+    display:flex;
+    justify-content: center;
+    align-items:center;
     width: 210px;
     background-position: center;
     background-size: cover;
     border-radius: 6px;
     text-align: center !important;
-    background-image: url('../images/HeaderImage.jpg');
     padding: 40px 80px;
-    margin: 0 auto;
 }
 
+.homeHeader{
+    background-image: url('../images/homeHeaderImage.jpg');
+}
 
+.categoryHeader{
+    background-image: url('../images/categoryHeaderImage.jpg');
+}
+
+.signHeader{
+    background-image: url('../images/signHeaderImage.jpg');
+}
 
 .navbar {
-  list-style-type: none;
-  margin-bottom: 10px;
-  padding: 0;
-  overflow: hidden;
-  background-color: rgba(158,137,93,0.9);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #d8c3a5;
+    border-bottom: 4px solid #bfa78a;
+    padding: 10px;
 }
 
 .navbar a {
+    font-family: "Georgia", serif;
     font-size: 17px;
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
+    color: #3a2e2e;
     padding: 14px 16px;
     text-decoration: none;
+    margin : 5px;
+    border-radius: 8px;
+    background-color: #efe6d8;
+    transition:0.2s;
 }
 
 .navbar a:hover {
-    background-color: black;
+    background-color: #c7a98b;
+    color: white;
 }
 
-.topnav a.active {
-    background-color: black; color: white;
+.navbar a.active {
+    background-color: black;
+    color: white;
 }
 
 main {
@@ -65,5 +81,103 @@ main {
     background-color: burlywood;
 }
 
+@media (max-width:760px) {
+    .recipe-grid{
+        display:grid;
+        gap:40px;
+        width:80%;
+    }
+
+}
+
+/*-- recipes and likes bit --*/
+
+.recipe-grid{
+    width: 80%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
+    gap: 40px;
+}
+
+.recipe-card {
+    border:2px solid black;
+    border: 2px solid #e4d1b3;
+    box-shadow:0 6px 10px rgba(0,0,0,0.1);
+    padding:18px;
+    background:white;
+    border-radius: 18px;
+}
+
+.recipe-card img{
+    width: 100%;
+    border:3px solid #e7d4b6;
+    border-radius: 18px;
+}
+
+.recipe-url{
+    margin-top: 12px;
+    padding: 10px;
+    background: #f4e7d3;
+    border-radius: 6px;
+    border:1px solid black;
+}
+
+.recipe-url a{
+    color:darkred;
+}
+
+.like-section{
+    margin-top:12px;
+}
+
+.like-section button{
+    background: #c47a6c;
+    color:white;
+    padding:8px 15px;
+    border-radius:8px;
+    margin-left:10px;
+}
 
 
+.like-section button:hover{
+    background: black;
+}
+
+
+
+
+/*---Home page--*/
+
+.hero-button{
+    background-color: #7a3e3e;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 10px;
+    text-decoration:none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.hero-button:hover{
+    background-color: black;
+}
+
+
+.welcome-card {
+    display:flex;
+    gap:30px;
+    background: beige;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0px 5px 12px rgba(0,0,0,0.1);
+}
+
+@media(max-width:760px){
+    .welcome-card{
+        flex-direction:column;
+    }
+
+    header{
+        padding:25px 50px;
+    }
+}
