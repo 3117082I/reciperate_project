@@ -30,6 +30,7 @@ header {
     border-radius: 6px;
     text-align: center !important;
     padding: 40px 80px;
+    gap:30px;
 }
 
 .homeHeader{
@@ -42,6 +43,12 @@ header {
 
 .signHeader{
     background-image: url('../images/signHeaderImage.jpg');
+}
+
+.header-gif {
+    width: 125px;
+    height: auto;
+    margin:8x;
 }
 
 .navbar {
@@ -180,4 +187,17 @@ main {
     header{
         padding:25px 50px;
     }
+}
+
+.signInDiv {
+    margin: 40px auto;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width: 210px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 6px;
+    text-align: center !important;
+    background-image: url('../images/signHeaderImage.jpg');
 }
