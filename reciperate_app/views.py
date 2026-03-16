@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from .forms import RecipeForm
+from .forms import RecipeForm, SignUpForm
 from .models import Recipe
 from django.contrib.auth import authenticate, login
 
@@ -53,7 +53,7 @@ def sign_in(request):
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
         if user:
-            if user_is_active:
+            if user.is_active:
                 login(request, user)
                 return redirect(reverse('index'))
             else:
