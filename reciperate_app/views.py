@@ -41,7 +41,7 @@ def sign_up(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('sign_in')
+            return redirect('reciperate:sign_in')
     else:
         form = SignUpForm()
     context_dict = {'form': form}
@@ -55,7 +55,7 @@ def sign_in(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return redirect(reverse('index'))
+                return redirect(reverse('reciperate:index'))
             else:
                 return HttpResponse("Your account is disabled.")
         else:
