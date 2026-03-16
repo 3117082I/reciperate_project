@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: "Georgia", serif;
@@ -8,10 +12,11 @@ body {
 }
 
 h1 {
-    font-size: 55px;
+    font-size: 60px;
     color: #6b2d2d;
     text-align: center;
     font-style: italic;
+    text-shadow:2px 2px 4px rgba(0,0,0,0.2);
 }
 
 h2 {
@@ -19,18 +24,22 @@ h2 {
     text-align: center;
 }
 
+p{
+
+}
+
 header {
-    margin: 40px auto;
+    margin: 20px auto;
+    width: 230px;
+    padding: 40px 80px;
+    border-radius: 6px;
     display:flex;
     justify-content: center;
     align-items:center;
-    width: 210px;
     background-position: center;
     background-size: cover;
-    border-radius: 6px;
-    text-align: center !important;
-    padding: 40px 80px;
     gap:30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25), inset 0 0 10px rgba(255,255,255,0.5);
 }
 
 .homeHeader{
@@ -45,139 +54,189 @@ header {
     background-image: url('../images/signHeaderImage.jpg');
 }
 
-.header-gif {
-    width: 125px;
-    height: auto;
-    margin:8x;
-}
 
 .navbar {
-    display: flex;
-    flex-direction: row;
+    display:flex;
     justify-content: center;
-    flex-wrap: wrap;
-    background-color: #d8c3a5;
-    border-bottom: 4px solid #bfa78a;
-    padding: 10px;
+    flex-wrap:wrap;
+    gap:10px;
+    background:#e8d5b5;
+    border-bottom: 5px solid #bfa78a;
+    padding: 15px;
+    box-shadow:0 6px 12px rgba(0,0,0,0.2);
+    align-items:center;
 }
 
 .navbar a {
     font-family: "Georgia", serif;
-    font-size: 17px;
-    color: #3a2e2e;
-    padding: 14px 16px;
+    font-size: 18px;
+    padding:12px 20px;
     text-decoration: none;
-    margin : 5px;
-    border-radius: 8px;
-    background-color: #efe6d8;
-    transition:0.2s;
+    margin : 10px;
+    border-radius: 40px;
+    background:#f6eee1;
+    color:#3a2e2e;
+    transition:transform 0.3s ease, box-shadow 0.3s, background 0.3s;
+    box-shadow: 0px 4px 1px rgba(0,0,0,0.2);
 }
 
 .navbar a:hover {
-    background-color: #c7a98b;
-    color: white;
+    background:#8d3c3c;
+    color:white;
+    transform:translateY(-4px);
+    box-shadow:0 12px 18px rgba(0,0,0,0.3);
 }
 
 .navbar a.active {
-    background-color: black;
-    color: white;
+    background:#4a2d2d;
+    color:white;
 }
 
-main {
-    padding: 20px;
-    background-color: burlywood;
-}
-
-@media (max-width:760px) {
-    .recipe-grid{
-        display:grid;
-        gap:40px;
-        width:80%;
-    }
-
-}
 
 /*-- recipes and likes bit --*/
 
-.recipe-grid{
-    width: 80%;
+
+@media (max-width:760px) {
+    .recipe_grid{
+        width: 90%;
+        margin:40px auto;
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+        gap: 20px;
+    }
+}
+
+.recipe_grid{
+    width: 90%;
+    margin:50px auto;
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
-    gap: 40px;
+    grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+    gap: 50px;
 }
 
-.recipe-card {
-    border:2px solid black;
-    border: 2px solid #e4d1b3;
-    box-shadow:0 6px 10px rgba(0,0,0,0.1);
-    padding:18px;
-    background:white;
-    border-radius: 18px;
+.recipe_card {
+    position:relative;
+    background-image:url('../images/recipeCard.jpg');
+    background-size:cover;
+    background-position:center;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.4);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.recipe-card img{
+.recipe_card img{
     width: 100%;
-    border:3px solid #e7d4b6;
-    border-radius: 18px;
+    margin-top:30px;
+    border-radius: 20px;
+    border:4px solid #e7d4b6;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.recipe-url{
-    margin-top: 12px;
+
+.recipe_card hover{
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.4);
+}
+
+.recipe_card hover img{
+    max-height:180px;
+    object-fit:cover;
+    transform: scale(1.5);
+    box-shadow:0 12px 18px rgba(0,0,0,0.3);
+}
+
+.recipe_url{
+    margin-top: 15px;
     padding: 10px;
     background: #f4e7d3;
-    border-radius: 6px;
-    border:1px solid black;
+    border-radius: 10px;
+    border:2px solid #c9b090;
+    font-size:15px;
 }
 
-.recipe-url a{
-    color:darkred;
+.recipe_url a{
+    color:#8d3c3c;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.recipe-url a:hover{
+    text-decoration:underline;
 }
 
 .like-section{
-    margin-top:12px;
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    color:#7a3e3e;
+    font-weight:bold;
 }
 
 .like-section button{
     background: #c47a6c;
     color:white;
-    padding:8px 15px;
-    border-radius:8px;
-    margin-left:10px;
+    padding:8px 18px;
+    font-weight:bold;
+    border-radius:10px;
+    cursor:pointer;
+    transition:transform 0.25s ease, box-shadow 0.1s ease, background 0.25s;
 }
-
 
 .like-section button:hover{
-    background: black;
+    background:#4a2d2d;
+    transform:scale(1.05);
+    box-shadow:0 6px 12px rgba(0,0,0,0.3);
 }
-
-
 
 
 /*---Home page--*/
 
+.hero-content {
+    max-width:900px;
+    margin:40px auto;
+    background: #E3CFBC;
+    border-radius:22px;
+    padding:40px;
+    display:flex;
+    gap:40px;
+    align-items:center;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+}
+
+.welcome-card {
+    max-width:900px;
+    margin:40px auto;
+    background:#efe4cf;
+    border-radius:22px;
+    padding:40px;
+    display:flex;
+    gap:40px;
+    align-items:center;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+}
+
 .hero-button{
-    background-color: #7a3e3e;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 10px;
+
+    background:#7a3e3e;
+    color:white;
+    padding:12px 26px;
+    border-radius:12px;
     text-decoration:none;
-    display: inline-block;
-    margin-top: 20px;
+    font-weight:bold;
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
 }
 
 .hero-button:hover{
-    background-color: black;
+    background:#3e1f1f;
+    transform:translateY(-3px);
+    box-shadow:0 8px 14px rgba(0,0,0,0.3);
 }
 
 
-.welcome-card {
-    display:flex;
-    gap:30px;
-    background: beige;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0px 5px 12px rgba(0,0,0,0.1);
-}
+
 
 @media(max-width:760px){
     .welcome-card{
@@ -190,14 +249,61 @@ main {
 }
 
 .signInDiv {
-    margin: 40px auto;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    width: 210px;
-    background-position: center;
-    background-size: cover;
-    border-radius: 6px;
-    text-align: center !important;
-    background-image: url('../images/signHeaderImage.jpg');
+    margin: 50px auto;
+    width:350px;
+
+    padding:40px;
+
+    background-image:url('../images/signHeaderImage.jpg');
+
+    background-size:cover;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+
+    border:5px solid #e9d9b9;
+}
+
+
+/*responsive stuff */
+
+/* for tablet*/
+
+@media (max-width:900px){
+    header{
+        padding:40px 70px;
+    }
+    h1{
+        font-size:45px;
+    }
+    .welcome-card{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+/* phones */
+
+@media (max-width:600px){
+
+    .navbar{
+        flex-direction:column;
+    }
+
+    header{
+        padding:30px 40px;
+    }
+
+    h1{
+        font-size:36px;
+    }
+
+    .recipe_grid{
+        grid-template-columns:1fr;
+    }
+
+    .welcome-card{
+        padding:25px;
+    }
 }

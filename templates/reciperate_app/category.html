@@ -3,17 +3,22 @@
 {% block body_block %}
     <div class = "recipe_grid">
         {% for recipe in recipes %}
-            <div class="recipe_individual">
+            <div class="recipe_card">
                 <img src="{{ recipe.image.url }}" >
                 <p>{{ recipe.name }}</p>
-
+<div class="recipe-url">
                 <p>Recipe URL:</p>
                 <a href="{{  recipe.url }}"> {{  recipe.url }}</a>
+</div>
+            <div class="like-section">
+            <span class="like-count">
                 <p> {{ recipe.like_count }} Likes </p>
+            </span>
 
                 {%if user.is_authenticated %}
                     <button class = "like_button">Like</button>
                 {% endif %}
+            </div>
             </div>
         {% endfor %}
     </div>
