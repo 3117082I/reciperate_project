@@ -11,8 +11,8 @@ class Recipe(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipes')
     name = models.CharField(max_length=200)
-    url = models.CharField(max_length=500)
-    image = models.ImageField(upload_to='recipe_images/')
+    url = models.URLField(max_length=500)
+    image = models.ImageField(upload_to='recipe_images/', blank=True, null=True)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
 

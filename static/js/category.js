@@ -22,7 +22,7 @@ $(".like_button").click(function(e) {
             $btn.attr("aria-pressed", liked ? "true" : "false");
             $btn.toggleClass("is-liked", liked);
             liked ? $btn.text("Liked") : $btn.text("Like");
-            $btn.closest(".like-section").find(".like-counter").text(likeCount + " Likes");
+            $btn.closest(".like_section").find(".like_counter").text(likeCount + " Likes");
         },
         error: function (xhr) {
             console.error(xhr.responseText || xhr.statusText);

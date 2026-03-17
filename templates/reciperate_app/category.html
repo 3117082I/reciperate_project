@@ -13,12 +13,18 @@
             </div>
             <div class="like_section">
             <span class="like_count">
-                <p> {{ recipe.like_count }} Likes </p>
+                <p class="like_counter"> {{ recipe.like_count }} Likes </p>
             </span>
                 {%if user.is_authenticated %}
+                    {% if recipe.id in liked_posts %}
                     <button class="like_button"
-                            data-recipe-id="{{ recipe.name }}"
+                            data-recipe-id="{{ recipe.id }}"
+                            aria-pressed="true"> Liked</button>
+                    {% else %}
+                    <button class="like_button"
+                            data-recipe-id="{{ recipe.id }}"
                             aria-pressed="false"> Like</button>
+                    {% endif %}
                 {% endif %}
             </div>
             </div>
