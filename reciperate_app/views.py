@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .forms import RecipeForm, SignUpForm
 from .models import Recipe, Like
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 
@@ -57,7 +57,7 @@ def sign_in(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return redirect(reverse('reciperate:index'))
+                return redirect(reverse('reciperate:home'))
             else:
                 return HttpResponse("Your account is disabled.")
         else:
@@ -67,8 +67,8 @@ def sign_in(request):
         return render(request, 'reciperate_app/sign_in.html')
 
 def sign_out(request):
-    context_dict = {}
-    return render(request, 'reciperate_app/sign_out.html', context=context_dict)
+    logout(request)
+    return redirect(reverse('reciperate:home'))
 
 def home(request):
     context_dict = {}
