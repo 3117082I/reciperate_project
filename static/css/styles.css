@@ -149,7 +149,7 @@ header {
 .recipe_url{
     margin-top: 15px;
     padding: 10px;
-    background: #f7e4c4;
+    background: #f4e7d3;
     border-radius: 10px;
     border:2px solid #c9b090;
     font-size:15px;
@@ -165,8 +165,8 @@ header {
     text-decoration:underline;
 }
 
-.like-section{
-    margin-top:60px;
+.like_section{
+    margin-top:20px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -175,7 +175,7 @@ header {
     font-weight:bold;
 }
 
-.like-section button{
+.like_section button{
     background: #c47a6c;
     color:white;
     padding:8px 18px;
@@ -185,7 +185,7 @@ header {
     transition:transform 0.25s ease, box-shadow 0.1s ease, background 0.25s;
 }
 
-.like-section button:hover{
+.like_section button:hover{
     background:#4a2d2d;
     transform:scale(1.05);
     box-shadow:0 6px 12px rgba(0,0,0,0.3);
@@ -197,18 +197,12 @@ header {
 .hero-content {
     max-width:900px;
     margin:40px auto;
-    background: #efe4cf;
+    background: #E3CFBC;
     border-radius:22px;
     padding:40px;
     display:flex;
     gap:40px;
     align-items:center;
-    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
-    box-shadow: 0px 8px 2px rgba(0,0,0,0.2);
-}
-
-.hero-content:hover {
-    transform:translateY(-3px);
     box-shadow: 0 10px 18px rgba(0,0,0,0.2);
 }
 
@@ -221,18 +215,11 @@ header {
     display:flex;
     gap:40px;
     align-items:center;
-    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
-    box-shadow: 0px 8px 2px rgba(0,0,0,0.2);
-}
-
-
-.welcome-card:hover{
-    transform:translateY(-3px);
     box-shadow: 0 10px 18px rgba(0,0,0,0.2);
 }
 
-
 .hero-button{
+
     background:#7a3e3e;
     color:white;
     padding:12px 26px;
@@ -240,7 +227,6 @@ header {
     text-decoration:none;
     font-weight:bold;
     transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
-    box-shadow: 0px 4px 1px rgba(0,0,0,0.2);
 }
 
 .hero-button:hover{
@@ -262,23 +248,49 @@ header {
     }
 }
 
-.signInDiv {
-    margin: 50px auto;
-    width:350px;
+.login_card {
+    margin:10px auto;
+    width:600px;
 
     padding:40px;
 
-    background-image:url('../images/signHeaderImage.jpg');
+    background-image:url('../images/signInBoxImage.jpg');
 
     background-size:cover;
 
-    border-radius:20px;
+    border-radius:12px;
 
-    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
 
     border:5px solid #e9d9b9;
 }
 
+.input_group{
+    position:relative;
+    margin-bottom:25px;
+    background: pink;
+}
+
+input{
+    margin-top:30px;
+    width:100%;
+    padding:5px;
+    border:none;
+    outline:none;
+    border-radius:6px;
+
+    background:lightpink;
+    color:black;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius: 25px;
+    color:white;
+    cursor:pointer;
+}
 
 
 /*responsive stuff */
@@ -321,31 +333,9 @@ header {
     .welcome-card{
         padding:25px;
     }
+<<<<<<< HEAD
 }
 
-/*.like-section button {*/
-/*    position: relative;*/
-/*    width: 50px;*/
-/*    height: 45px;*/
-/*    background-color: red;*/
-/*    transform: rotate(-45deg);*/
-/*    border: none;*/
-/*    cursor: pointer;*/
-/*}*/
-/*.like-section button::before,*/
-/*.like-section button::after {*/
-/*    content: "";*/
-/*    position: absolute;*/
-/*    width: 50px;*/
-/*    height: 45px;*/
-/*    background-color: red;*/
-/*    border-radius: 50%;*/
-/*}*/
-/*.like-section button::before {*/
-/*    top: -25px;*/
-/*    left: 0;*/
-/*}*/
-/*.like-section button::after {*/
-/*    left: 25px;*/
-/*    top: 0;*/
-/*}*/
+=======
+}
+>>>>>>> 5f724c16703ec83880029e5d71621f7ea3eabcaf

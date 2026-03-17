@@ -5,31 +5,22 @@
     <div class = "recipe_grid">
         {% for recipe in recipes %}
             <div class="recipe_card">
+                <h2>{{ recipe.name }}</h2>
                 <img src="{{ recipe.image.url }}" >
-                <p>{{ recipe.name }}</p>
-                <div class="recipe-url">
-                    <p>Recipe URL:</p>
-                    <a href="{{ recipe.url }}"> {{ recipe.url }}</a>
-                </div>
-                <div class="like-section">
-                    <span class="like-count">
-                        <p class="like-counter"> {{ recipe.like_count }} Likes </p>
-                    </span>
-
-                    {%if user.is_authenticated %}
-                        {% if recipe.id in liked_posts %}
-                            <button class="like_button"
-                                    aria-pressed="true"
-                                    data-recipe-id="{{ recipe.id }}"
-                            >Liked</button>
-                        {% else %}
-                            <button class="like_button"
-                                    aria-pressed="false"
-                                    data-recipe-id="{{ recipe.id }}"
-                            >Like</button>
-                        {% endif %}
-                    {% endif %}
-                </div>
+            <div class="recipe_url">
+                <p>Recipe URL:</p>
+                <a href="{{ recipe.url }}"> {{ recipe.url }}</a>
+            </div>
+            <div class="like_section">
+            <span class="like_count">
+                <p> {{ recipe.like_count }} Likes </p>
+            </span>
+                {%if user.is_authenticated %}
+                    <button class="like_button"
+                            data-recipe-id="{{ recipe.name }}"
+                            aria-pressed="false"> Like</button>
+                {% endif %}
+            </div>
             </div>
         {% endfor %}
     </div>

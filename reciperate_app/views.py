@@ -51,7 +51,7 @@ def sign_in(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return redirect(reverse('reciperate:index'))
+                return redirect(reverse('reciperate:home'))
             else:
                 return HttpResponse("Your account is disabled.")
         else:
@@ -61,8 +61,8 @@ def sign_in(request):
         return render(request, 'reciperate_app/sign_in.html')
 
 def sign_out(request):
-    context_dict = {}
-    return render(request, 'reciperate_app/sign_out.html', context=context_dict)
+    logout(request)
+    return redirect(reverse('reciperate:home'))
 
 def home(request):
     context_dict = {}
