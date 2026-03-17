@@ -6,27 +6,27 @@
 {% endblock %}
 
 {% block body_block %}
-<h1>Sign Up</h1>
-<form method="post">
-    {% csrf_token %}
-
-    <div class="field">
-        <label for="id_username">Username *</label>
-        {{ form.username }}
-        {% if form.username.errors %}
-            <span class="error"> {{ form.username.errors }}</span>
-        {% endif %}
+<header class="signHeader">
+    <h1>Sign Up</h1>
+</header>
+    <div class="login_card">
+        <form method="post">
+            {% csrf_token %}
+            <div class="input_group">
+                Username: <input type="text" name="username" size="50" />
+                {% if form.username.errors %}
+                    <span class="error">{{ form.username.errors }} </span>
+                {% endif %}
+            </div>
+            <br />
+            <div class="input_group">
+                Password: <input type="password" name="password" size="50" />
+                {% if form.password.errors %}
+                    <span class="error">{{ form.password.errors }}</span>
+                {% endif %}
+            </div>
+            <br />
+            <input type="submit" value="Sign Up" />
+        </form>
     </div>
-
-    <div class="field">
-        <label for="id_password">Password *</label>
-        {{ form.password }}
-        {% if form.password.errors %}
-            <span class="error"> {{ form.password.errors }}</span>
-        {% endif %}
-    </div>
-
-
-    <button type="submit">Register</button>
-</form>
 {% endblock %}

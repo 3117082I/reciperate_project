@@ -24,7 +24,7 @@ def create_recipe(user, name, url, category, image=None):
         defaults={
             'url': url,
             'category': category,
-            'image': 'recipe_images/default.jpg',
+            'image': image if image else 'recipe_images/default.jpg',
         }
     )
     return recipe
@@ -49,84 +49,96 @@ def populate():
         user=jack,
         name='Pancakes',
         url='https://www.bbcgoodfood.com/recipes/easy-pancakes',
-        category='Breakfast'
+        image='recipe_images/pancakes.jpg',
+        category='breakfast'
     )
 
-    french_toast =create_recipe(
+    french_toast = create_recipe(
         user=zach,
         name='French Toast',
         url='https://www.bbcgoodfood.com/recipes/french-toast',
-        category='Breakfast'
+        image='recipe_images/french_toast.jpg',
+        category='breakfast'
     )
 
     pain_au_chocolat = create_recipe(
         user=nadia,
         name='Pain Au Chocolat',
         url='https://www.bbcgoodfood.com/recipes/pain-au-chocolat',
-        category='Breakfast'
+        image='recipe_images/pain_au_chocolat.jpg',
+        category='breakfast'
     )
 
     cheese_omelet = create_recipe(
         user=hugh,
-        name='Cheese Omelet',
+        name='Cheese Omelette',
         url='https://www.bbcgoodfood.com/recipes/cheese-omelette',
-        category='Breakfast'
+        image='recipe_images/cheese_omelette.jpg',
+        category='breakfast'
     )
 
     falafel_burgers = create_recipe(
         user=hafsa,
         name='Falafel Burgers',
         url='https://www.bbcgoodfood.com/recipes/falafel-burgers-0',
-        category='Lunch'
+        image='recipe_images/falafel_burgers.jpg',
+        category='lunch'
     )
 
     chicken_avocado_wrap = create_recipe(
         user=nadia,
         name='Spicy Chicken & Avocado Wraps',
         url='https://www.bbcgoodfood.com/recipes/spicy-chicken-avocado-wraps',
-        category='Lunch'
+        image='recipe_images/chicken_avocado_wraps.jpg',
+        category='lunch'
     )
 
     ham_cheese_egg_bagel = create_recipe(
         user=hafsa,
         name='Air Fryer Ham, Cheese & Egg Bagel',
         url='https://www.bbcgoodfood.com/recipes/air-fryer-ham-cheese-egg-bagel',
-        category='Lunch'
+        image='recipe_images/ham_cheese_egg_bagel.jpg',
+        category='lunch'
     )
 
     ultimate_chorizo_ciabatta = create_recipe(
         user=zach,
         name='Ultimate Chorizo Ciabatta',
         url='https://www.bbcgoodfood.com/recipes/ultimate-chorizo-ciabatta',
-        category='Lunch'
+        image='recipe_images/ultimate_chorizo_ciabatta.jpg',
+        category='lunch'
     )
 
     chicken_pasta_bake = create_recipe(
         user=hugh,
         name='Chicken Pasta Bake',
         url='https://www.bbcgoodfood.com/recipes/chicken-pasta-bake',
-        category='Dinner'
+        image='recipe_images/chicken_pasta_bake.jpg',
+        category='dinner'
     )
 
     creamy_chicken_pasta = create_recipe(
         user=jack,
         name='Creamy Chicken Pasta',
         url='https://www.bbcgoodfood.com/recipes/creamy-chicken-pasta',
-        category='Dinner'
+        image='recipe_images/creamy_chicken_pasta.jpg',
+        category='dinner'
     )
 
     easy_chicken_curry = create_recipe(
         user=zach,
         name='Easy Chicken Curry',
         url='https://www.bbcgoodfood.com/recipes/easy-chicken-curry',
-        category='Dinner'
+        image='recipe_images/easy_chicken_curry.jpg',
+        category='dinner'
     )
 
     crispy_chilli_beef = create_recipe(
         user=jack,
         name='Air Fryer Crispy Chilli Beef',
         url='https://www.bbcgoodfood.com/recipes/air-fryer-crispy-chilli-beef',
-        category='Dinner'
+        image='recipe_images/crispy_chilli_beef.jpg',
+        category='dinner'
     )
 
     #likes
