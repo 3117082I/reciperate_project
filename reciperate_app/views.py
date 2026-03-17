@@ -42,12 +42,13 @@ def sign_up(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
             return redirect('reciperate:sign_in')
     else:
         form = SignUpForm()
-    context_dict = {'form': form}
-    return render(request, 'reciperate_app/sign_up.html', context=context_dict)
+    return render(request, 'reciperate_app/sign_up.html', {'form': form})
 
 def sign_in(request):
     if request.method == 'POST':
