@@ -11,7 +11,7 @@ from django.views.decorators.http import require_http_methods
 
 # Create your views here.
 def breakfast(request):
-    recipes = Recipe.objects.all()
+    recipes = Recipe.objects.filter(category='breakfast').order_by('-created_at')
     context_dict = {'recipes': recipes}
     return render(request, 'reciperate_app/breakfast.html',context=context_dict)
 
