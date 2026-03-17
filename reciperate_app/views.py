@@ -8,22 +8,16 @@ from .models import Recipe, Like
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
+from .utils import render_recipe
 
-# Create your views here.
 def breakfast(request):
-    recipes = Recipe.objects.all()
-    context_dict = {'recipes': recipes}
-    return render(request, 'reciperate_app/breakfast.html',context=context_dict)
+    return render_recipe(request, 'breakfast', 'reciperate_app/breakfast.html')
 
 def lunch(request):
-    recipes = Recipe.objects.filter(category='lunch').order_by('-created_at')
-    context_dict = {'recipes': recipes}
-    return render(request, 'reciperate_app/lunch.html',context=context_dict)
+    return render_recipe(request, 'lunch', 'reciperate_app/lunch.html')
 
 def dinner(request):
-    recipes = Recipe.objects.filter(category='dinner').order_by('-created_at')
-    context_dict = {'recipes': recipes}
-    return render(request, 'reciperate_app/dinner.html', context=context_dict)
+    return render_recipe(request, 'dinner', 'reciperate_app/dinner.html')
 
 @login_required
 def add_recipe(request):
@@ -78,13 +72,14 @@ def home(request):
 @require_http_methods(['POST', 'DELETE'])
 def like_recipe(request, category, recipe_id):
     user = request.user
-    print(user)
+    recipe = Recipe.objects.get(id=recipe_id)
+
     if request.method == 'POST':
-        Like.objects.create(user=request.user, recipe=recipe_id)
+        Like.objects.create(user=request.user, recipe=recipe)
         liked = True
     else:
-        Like.objects.filter(user=request.user, recipe=recipe_id).delete()
+        Like.objects.filter(user=request.user, recipe=recipe).delete()
         liked = False
 
-    like_count = Like.objects.filter(user=request.user, recipe_id=recipe_id).count()
+    like_count = recipe.like_count
     return JsonResponse({'liked': liked, 'like_count': like_count})
