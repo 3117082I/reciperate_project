@@ -9,7 +9,24 @@
 <h1>Sign Up</h1>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+
+    <div class="field">
+        <label for="id_username">Username *</label>
+        {{ form.username }}
+        {% if form.username.errors %}
+            <span class="error"> {{ form.username.errors }}</span>
+        {% endif %}
+    </div>
+
+    <div class="field">
+        <label for="id_password">Password *</label>
+        {{ form.password }}
+        {% if form.password.errors %}
+            <span class="error"> {{ form.password.errors }}</span>
+        {% endif %}
+    </div>
+
+
     <button type="submit">Register</button>
 </form>
 {% endblock %}
