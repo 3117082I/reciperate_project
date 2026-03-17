@@ -24,7 +24,7 @@ def create_recipe(user, name, url, category, image=None):
         defaults={
             'url': url,
             'category': category,
-            'image': 'recipe_images/default.jpg',
+            'image': image if image else 'recipe_images/default.jpg',
         }
     )
     return recipe
@@ -49,13 +49,15 @@ def populate():
         user=jack,
         name='Pancakes',
         url='https://www.bbcgoodfood.com/recipes/easy-pancakes',
+        image='recipe_images/pancakes.jpg',
         category='Breakfast'
     )
 
-    french_toast =create_recipe(
+    french_toast = create_recipe(
         user=zach,
         name='French Toast',
         url='https://www.bbcgoodfood.com/recipes/french-toast',
+        image='recipe_images/french_toast.jpg',
         category='Breakfast'
     )
 
@@ -63,13 +65,15 @@ def populate():
         user=nadia,
         name='Pain Au Chocolat',
         url='https://www.bbcgoodfood.com/recipes/pain-au-chocolat',
+        image='recipe_images/pain_au_chocolat.jpg',
         category='Breakfast'
     )
 
     cheese_omelet = create_recipe(
         user=hugh,
-        name='Cheese Omelet',
+        name='Cheese Omelette',
         url='https://www.bbcgoodfood.com/recipes/cheese-omelette',
+        image='recipe_images/cheese_omelette.jpg',
         category='Breakfast'
     )
 
@@ -77,6 +81,7 @@ def populate():
         user=hafsa,
         name='Falafel Burgers',
         url='https://www.bbcgoodfood.com/recipes/falafel-burgers-0',
+        image='recipe_images/falafel_burgers.jpg',
         category='Lunch'
     )
 
@@ -84,6 +89,7 @@ def populate():
         user=nadia,
         name='Spicy Chicken & Avocado Wraps',
         url='https://www.bbcgoodfood.com/recipes/spicy-chicken-avocado-wraps',
+        image='recipe_images/chicken_avocado_wraps.jpg',
         category='Lunch'
     )
 
@@ -91,6 +97,7 @@ def populate():
         user=hafsa,
         name='Air Fryer Ham, Cheese & Egg Bagel',
         url='https://www.bbcgoodfood.com/recipes/air-fryer-ham-cheese-egg-bagel',
+        image='recipe_images/ham_cheese_egg_bagel.jpg',
         category='Lunch'
     )
 
@@ -98,6 +105,7 @@ def populate():
         user=zach,
         name='Ultimate Chorizo Ciabatta',
         url='https://www.bbcgoodfood.com/recipes/ultimate-chorizo-ciabatta',
+        image='recipe_images/ultimate_chorizo_ciabatta.jpg',
         category='Lunch'
     )
 
@@ -105,6 +113,7 @@ def populate():
         user=hugh,
         name='Chicken Pasta Bake',
         url='https://www.bbcgoodfood.com/recipes/chicken-pasta-bake',
+        image='recipe_images/chicken_pasta_bake.jpg',
         category='Dinner'
     )
 
@@ -112,6 +121,7 @@ def populate():
         user=jack,
         name='Creamy Chicken Pasta',
         url='https://www.bbcgoodfood.com/recipes/creamy-chicken-pasta',
+        image='recipe_images/creamy_chicken_pasta.jpg',
         category='Dinner'
     )
 
@@ -119,6 +129,7 @@ def populate():
         user=zach,
         name='Easy Chicken Curry',
         url='https://www.bbcgoodfood.com/recipes/easy-chicken-curry',
+        image='recipe_images/easy_chicken_curry.jpg',
         category='Dinner'
     )
 
@@ -126,6 +137,7 @@ def populate():
         user=jack,
         name='Air Fryer Crispy Chilli Beef',
         url='https://www.bbcgoodfood.com/recipes/air-fryer-crispy-chilli-beef',
+        image='recipe_images/crispy_chilli_beef.jpg',
         category='Dinner'
     )
 
