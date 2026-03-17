@@ -5,17 +5,16 @@
     <div class = "recipe_grid">
         {% for recipe in recipes %}
             <div class="recipe_card">
+                <h2>{{ recipe.name }}</h2>
                 <img src="{{ recipe.image.url }}" >
-                <p>{{ recipe.name }}</p>
-            <div class="recipe-url">
+            <div class="recipe_url">
                 <p>Recipe URL:</p>
                 <a href="{{ recipe.url }}"> {{ recipe.url }}</a>
             </div>
-            <div class="like-section">
-            <span class="like-count">
+            <div class="like_section">
+            <span class="like_count">
                 <p> {{ recipe.like_count }} Likes </p>
             </span>
-
                 {%if user.is_authenticated %}
                     <button class="like_button"
                             data-recipe-id="{{ recipe.name }}"
