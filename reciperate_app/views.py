@@ -4,8 +4,10 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .forms import RecipeForm, SignUpForm
-from .models import Recipe
+from .models import Recipe, Like
 from django.contrib.auth import authenticate, login
+from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
 
 # Create your views here.
 def breakfast(request):
@@ -71,3 +73,18 @@ def sign_out(request):
 def home(request):
     context_dict = {}
     return render(request, 'reciperate_app/home.html', context=context_dict)
+
+@login_required
+@require_http_methods(['POST', 'DELETE'])
+def like_recipe(request, category, recipe_id):
+    user = request.user
+    print(user)
+    if request.method == 'POST':
+        Like.objects.create(user=request.user, recipe=recipe_id)
+        liked = True
+    else:
+        Like.objects.filter(user=request.user, recipe=recipe_id).delete()
+        liked = False
+
+    like_count = Like.objects.filter(user=request.user, recipe_id=recipe_id).count()
+    return JsonResponse({'liked': liked, 'like_count': like_count})

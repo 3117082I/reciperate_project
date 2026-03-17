@@ -1,4 +1,5 @@
 {% extends "reciperate_app/base.html" %}
+{% load staticfiles %}
 
 {% block body_block %}
     <div class = "recipe_grid">
@@ -6,20 +7,27 @@
             <div class="recipe_card">
                 <img src="{{ recipe.image.url }}" >
                 <p>{{ recipe.name }}</p>
-<div class="recipe-url">
+            <div class="recipe-url">
                 <p>Recipe URL:</p>
-                <a href="{{  recipe.url }}"> {{  recipe.url }}</a>
-</div>
+                <a href="{{ recipe.url }}"> {{ recipe.url }}</a>
+            </div>
             <div class="like-section">
             <span class="like-count">
                 <p> {{ recipe.like_count }} Likes </p>
             </span>
 
                 {%if user.is_authenticated %}
-                    <button class = "like_button">Like</button>
+                    <button class="like_button"
+                            data-recipe-id="{{ recipe.name }}"
+                            aria-pressed="false"> Like</button>
                 {% endif %}
             </div>
             </div>
         {% endfor %}
     </div>
+
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{% static 'js/category.js' %}"></script>
 {% endblock %}
+
