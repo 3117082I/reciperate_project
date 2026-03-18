@@ -9,7 +9,7 @@ $(".like_button").click(function(e) {
     $btn.prop('disabled', true);
 
     $.ajax({
-        url: `api/like/${recipeID}`,
+        url: `api/like/${recipeID}/`,
         type: formAction,
         headers: {
             "X-CSRFToken": document.querySelector('meta[name="csrf-token"]').content
