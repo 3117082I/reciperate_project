@@ -9,14 +9,14 @@
         <header class= "signHeader">
             <h1>Sign In</h1>
         </header>
-    <div class="login_card">
+    <div class="form_container">
         <form method="post" action="{% url 'reciperate:sign_in' %}">
             {% csrf_token %}
-            <div class="input_group">
+            <div class="form_group">
             Username: <input type="text" name="username" size="50" />
             </div>
             <br />
-            <div class="input_group">
+            <div class="form_group">
             Password: <input type="password" name="password" size="50" />
             </div>
             <br />
