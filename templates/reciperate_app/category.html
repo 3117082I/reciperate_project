@@ -2,6 +2,14 @@
 {% load staticfiles %}
 
 {% block body_block %}
+    <form method="get">
+        <select name="sort" onchange="this.form.submit()">
+            <option value="popular" {% if sort == 'popular' %}selected{% endif %}>Popular</option>
+            <option value="newest" {% if sort == 'newest' %}selected{% endif %}>Newest</option>
+            <option value="oldest" {% if sort == 'oldest' %}selected{% endif %}>Oldest</option>
+            <option value="az" {% if sort == 'az' %}selected{% endif %}>A-Z</option>
+        </select>
+    </form>
     <div class = "recipe_grid">
         {% for recipe in recipes %}
             <div class="recipe_card">
