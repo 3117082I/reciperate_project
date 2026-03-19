@@ -13,11 +13,13 @@
         </select>
     </form>
     </div>
-    <div class = "recipe_grid">
+    <div class ="recipe_grid">
         {% for recipe in recipes %}
             <div class="recipe_card">
                 <h2>{{ recipe.name }}</h2>
+            {% if recipe.image %}
                 <img src="{{ recipe.image.url }}" >
+            {% endif %}
             <div class="recipe_url">
                 <p>Recipe URL:</p>
                 <a href="{{ recipe.url }}"> {{ recipe.url }}</a>
