@@ -6,22 +6,30 @@
 
 {% block body_block %}
 <h1>Add a Recipe</h1>
-
+<div class="form_container">
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-
+<div class="form_group">
     <label>Recipe Title:</label>
     {{ form.name }}<br><br>
+</div>
 
+    <div class="form_group">
     <label>Recipe URL:</label>
     {{ form.url }}<br><br>
+    </div>
 
+    <div class="form_group">
     <label>Category:</label>
     {{ form.category }}<br><br>
+    </div>
 
+    <div class="form_group">
     <label>Add Image:</label>
     {{ form.image }}<br><br>
+    </div>
 
     <button type="submit">Add Recipe</button>
 </form>
+</div>
 {% endblock %}

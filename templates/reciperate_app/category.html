@@ -2,6 +2,8 @@
 {% load staticfiles %}
 
 {% block body_block %}
+    <h2>Click below to sort by popular, newest, oldest, and alphabetical</h2>
+    <div class="select-wrapper">
     <form method="get">
         <select name="sort" onchange="this.form.submit()">
             <option value="popular" {% if sort == 'popular' %}selected{% endif %}>Popular</option>
@@ -10,11 +12,14 @@
             <option value="az" {% if sort == 'az' %}selected{% endif %}>A-Z</option>
         </select>
     </form>
-    <div class = "recipe_grid">
+    </div>
+    <div class ="recipe_grid">
         {% for recipe in recipes %}
             <div class="recipe_card">
                 <h2>{{ recipe.name }}</h2>
+            {% if recipe.image %}
                 <img src="{{ recipe.image.url }}" >
+            {% endif %}
             <div class="recipe_url">
                 <p>Recipe URL:</p>
                 <a href="{{ recipe.url }}"> {{ recipe.url }}</a>
