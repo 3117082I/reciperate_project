@@ -20,7 +20,6 @@ $(".like_button").click(function(e) {
             const liked = response.liked
 
             $btn.attr("aria-pressed", liked ? "true" : "false");
-            $btn.toggleClass("is-liked", liked);
             liked ? $btn.text("Liked") : $btn.text("Like");
             $btn.closest(".like_section").find(".like_counter").text(likeCount + " Likes");
         },

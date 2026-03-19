@@ -2,6 +2,44 @@ from django.test import TestCase
 from django.urls import reverse
 from .models import Recipe, Like, UserProfile
 from django.contrib.auth.models import User
+from django.conf import settings
+import importlib
+
+class ViewTests(TestCase):
+    def setUp(self):
+        self.views_module = importlib.import_module('reciperate_app.views')
+        self.views_module_listing = dir(self.views_module)
+
+        self.project_urls_module = importlib.import_module('reciperate_app.urls')
+
+    def test_home_exists(self):
+        self.check_if_view_exists('home')
+
+    def test_breakfast_exists(self):
+        self.check_if_view_exists('breakfast')
+
+    def test_lunch_exists(self):
+        self.check_if_view_exists('lunch')
+
+    def test_dinner_exists(self):
+        self.check_if_view_exists('dinner')
+
+    def test_sign_in_exists(self):
+        self.check_if_view_exists('sign_in')
+
+    def test_sign_up_exists(self):
+        self.check_if_view_exists('sign_up')
+
+    def test_add_recipe_exists(self):
+        self.check_if_view_exists('add_recipe')
+
+    def check_if_view_exists(self, view):
+        name_exists = view in self.views_module_listing
+        is_callable = callable(self.views_module.home)
+
+        self.assertTrue(name_exists)
+        self.assertTrue(is_callable)
+
 
 class NavBarTests(TestCase):
     def setUp(self):
@@ -11,23 +49,22 @@ class NavBarTests(TestCase):
 
     def test_navbar_anonymous(self):
         response = self.client.get(reverse("reciperate:home"))
-        self.assertContains(response, 'href = "/reciperate/home/')
-        self.assertContains(response, 'href = "/reciperate/breakfast/"')
-        self.assertContains(response, 'href = "/reciperate/lunch/"')
-        self.assertContains(response, 'href = "/reciperate/dinner/"')
+        self.check_common_links_on_nav_bar(response)
         self.assertContains(response, 'href = "/reciperate/sign-in/"')
         self.assertContains(response, 'href = "/reciperate/sign-up/"')
-
 
     def test_navbar_logged_in(self):
         self.client.login(username="test", password="test123")
         response = self.client.get(reverse("reciperate:home"))
+        self.check_common_links_on_nav_bar(response)
+        self.assertContains(response, 'href = "/reciperate/add-recipe/"')
+        self.assertContains(response, 'href = "/reciperate/sign-out/"')
+
+    def check_common_links_on_nav_bar(self, response):
         self.assertContains(response, 'href = "/reciperate/home/')
         self.assertContains(response, 'href = "/reciperate/breakfast/"')
         self.assertContains(response, 'href = "/reciperate/lunch/"')
         self.assertContains(response, 'href = "/reciperate/dinner/"')
-        self.assertContains(response, 'href = "/reciperate/add-recipe/"')
-        self.assertContains(response, 'href = "/reciperate/sign-out/"')
 
 
 class LikeButtonTests(TestCase):
@@ -51,6 +88,7 @@ class LikeButtonTests(TestCase):
             "reciperate:like_recipe",
             kwargs={"category": self.recipe.category, "recipe_id": self.recipe.id}
         )
+
 
     def test_like_button_unavailable_logged_out(self):
         #button should not show if not logged in
