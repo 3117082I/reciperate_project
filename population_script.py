@@ -168,7 +168,7 @@ def populate():
     quesadilla = create_recipe(
         user=nadia,
         name='Cheesy Chicken Quesadilla',
-        url='https://www.simplyrecipes.com/recipes/chicken_quesadilla/',
+        url='https://www.delish.com/cooking/recipe-ideas/a54465/easy-chicken-quesadilla-recipe/',
         image='recipe_images/quesadilla.jpg',
         category='lunch'
     )
