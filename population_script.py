@@ -77,6 +77,38 @@ def populate():
         category='breakfast'
     )
 
+    porridge = create_recipe(
+        user=zach,
+        name='Creamy Oat Porridge',
+        url='https://www.allrecipes.com/recipe/245498/overnight-oats/',
+        image='recipe_images/porridge.jpg',
+        category='breakfast'
+    )
+
+    egg_muffins = create_recipe(
+        user=hafsa,
+        name='Breakfast Egg Muffins',
+        url='https://www.allrecipes.com/recipe/222586/egg-muffins/',
+        image='recipe_images/egg_muffins.jpg',
+        category='breakfast'
+    )
+
+    waffles = create_recipe(
+        user=jack,
+        name='Golden Belgian Waffles',
+        url='https://www.allrecipes.com/recipe/20513/classic-waffles/',
+        image='recipe_images/waffles.jpg',
+        category='breakfast'
+    )
+
+    fruit_yogurt = create_recipe(
+        user=nadia,
+        name='Fruit & Yogurt Bowl',
+        url='https://www.simplyrecipes.com/yogurt-parfait-recipe-5180007',
+        image='recipe_images/fruit_yogurt.jpg',
+        category='breakfast'
+    )
+
     falafel_burgers = create_recipe(
         user=hafsa,
         name='Falafel Burgers',
@@ -109,6 +141,38 @@ def populate():
         category='lunch'
     )
 
+    grilled_cheese = create_recipe(
+        user=hugh,
+        name='Classic Grilled Cheese Sandwich',
+        url='https://www.allrecipes.com/recipe/23891/grilled-cheese-sandwich/',
+        image='recipe_images/grilled_cheese.jpg',
+        category='lunch'
+    )
+
+    chicken_wrap = create_recipe(
+        user=zach,
+        name='Grilled Chicken Wrap',
+        url='https://www.bbcgoodfood.com/recipes/grilled-chicken-wrap',
+        image='recipe_images/chicken_wrap.jpg',
+        category='lunch'
+    )
+
+    pasta_salad = create_recipe(
+        user=hafsa,
+        name='Mediterranean Pasta Salad',
+        url='https://www.allrecipes.com/recipe/14385/pasta-salad/',
+        image='recipe_images/pasta_salad.jpg',
+        category='lunch'
+    )
+
+    quesadilla = create_recipe(
+        user=nadia,
+        name='Cheesy Chicken Quesadilla',
+        url='https://www.simplyrecipes.com/recipes/chicken_quesadilla/',
+        image='recipe_images/quesadilla.jpg',
+        category='lunch'
+    )
+
     chicken_pasta_bake = create_recipe(
         user=hugh,
         name='Chicken Pasta Bake',
@@ -138,6 +202,38 @@ def populate():
         name='Air Fryer Crispy Chilli Beef',
         url='https://www.bbcgoodfood.com/recipes/air-fryer-crispy-chilli-beef',
         image='recipe_images/crispy_chilli_beef.jpg',
+        category='dinner'
+    )
+
+    lasagna = create_recipe(
+        user=jack,
+        name='Homemade Lasagna',
+        url='https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/',
+        image='recipe_images/lasagna.jpg',
+        category='dinner'
+    )
+
+    roast_chicken = create_recipe(
+        user=hugh,
+        name='Roast Chicken with Herbs',
+        url='https://www.bbcgoodfood.com/recipes/roast-chicken',
+        image='recipe_images/roast_chicken.jpg',
+        category='dinner'
+    )
+
+    beef_tacos = create_recipe(
+        user=zach,
+        name='Spicy Beef Tacos',
+        url='https://www.simplyrecipes.com/recipes/beef_tacos/',
+        image='recipe_images/beef_tacos.jpg',
+        category='dinner'
+    )
+
+    veg_curry = create_recipe(
+        user=hafsa,
+        name='Vegetable Coconut Curry',
+        url='https://www.bbcgoodfood.com/recipes/vegetable-curry',
+        image='recipe_images/veg_curry.jpg',
         category='dinner'
     )
 
