@@ -55,10 +55,9 @@ def sign_in(request):
                 login(request, user)
                 return redirect(reverse('reciperate:home'))
             else:
-                return HttpResponse("Your account is disabled.")
+                return render(request, 'reciperate_app/sign_in.html', {'error': 'Your account is disabled.'})
         else:
-            print(f"Invalid login details: {username}, {password}")
-            return HttpResponse("Invalid login details supplied.")
+            return render(request, 'reciperate_app/sign_in.html', {'error': 'Invalid username or password. Please try again.'})
     else:
         return render(request, 'reciperate_app/sign_in.html')
 
