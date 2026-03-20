@@ -1,14 +1,11 @@
 from django.shortcuts import render, redirect
-from django.template import loader
-from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.http import require_http_methods
 from .forms import RecipeForm, SignUpForm
 from .models import Recipe, Like
-from django.contrib.auth import authenticate, login, logout
-from django.http import JsonResponse
-from django.views.decorators.http import require_http_methods
 from .utils import render_recipe
 
 def breakfast(request):

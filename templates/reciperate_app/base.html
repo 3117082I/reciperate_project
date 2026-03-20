@@ -6,6 +6,7 @@
     <title>
         Reciperate{% block title_block %} {% endblock %}</title>
     <link rel = "stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div class="navbar">
@@ -14,12 +15,12 @@
     <a href = "{% url 'reciperate:lunch' %}">Lunch</a>
     <a href = "{% url 'reciperate:dinner' %}">Dinner</a>
 
-    {% if user.is_authenticated %}
-    <a href = "{% url 'reciperate:add_recipe' %}">Add a recipe</a>
-    <a href = "{% url 'reciperate:sign_out' %}">Sign Out</a>
+    {%if user.is_authenticated %}
+        <a href = "{% url 'reciperate:add_recipe' %}">Add a recipe</a>
+        <a href = "{% url 'reciperate:sign_out' %}">Sign Out</a>
     {% else %}
-    <a href = "{% url 'reciperate:sign_in' %}">Sign in</a>
-    <a href = "{% url 'reciperate:sign_up' %}">Sign up</a>
+        <a href = "{% url 'reciperate:sign_in' %}">Sign in</a>
+        <a href = "{% url 'reciperate:sign_up' %}">Sign up</a>
     {% endif %}
 </div>
 

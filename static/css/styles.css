@@ -5,7 +5,7 @@ html {
 body {
     margin: 0;
     font-family: "Georgia", serif;
-    background: burlywood;
+    background: #e8d5b5;
     text-align: center;
     background-image: url('../images/BackgroundDots.jpg');
     background-repeat: repeat;
@@ -50,8 +50,8 @@ header {
     background-image: url('../images/categoryHeaderImage.jpg');
 }
 
-.signHeader{
-    background-image: url('../images/signHeaderImage.jpg');
+.formHeader{
+    background-image: url('../images/formHeaderImage.jpg');
 }
 
 
@@ -266,12 +266,11 @@ header {
     }
 }
 
-form_container{
-    width:300px;
-    margin:40px auto;
+.form_container{
+    width:100%;
+    max-width:420px;
+    margin:60px auto;
     padding:40px;
-    background-image:url('../images/signInBoxImage.jpg');
-    background-size:cover;
     background: #e9d9b9;
     border-radius: 20px;
 
@@ -284,44 +283,63 @@ form_container{
     flex-direction:column;
     margin-bottom:25px;
     text-align:left;
-    background: pink;
 }
 
 .form_group label{
+    position:absolute;
+    transform:translateY(-50%);
+    transition:0.2s ease;
+    background: #e9d9b9;
+    padding: 0 6px;
     fomt-weight:bold;
-    margin-bottom:8px;
+    margin-bottom:1px;
     color:#5a2a2a;
     font-size:16px;
+    radius: 30px;
 }
 
 
-.form_group input, .form_group select, .form_textarea {
+.form_group input, .form_group select {
+    margin-top:12px;
     width:100%;
-    padding:12px;
+    padding:14px 12px;
     font-size:15px;
-
     border:2px solid #d6c2a3;
     border-radius:10px;
-
+    transition: all 0.25s ease;
     background:#fffaf3;
     color:black;
 }
 
-
-.form_group input:focus, .form_ghroup select:focus{
-    border-color: #8d3c3c;
-    box-shadow: 0 0 8px rgba(141,60,60,0.3);
+.form_group input:focus, .form_group select:focus {
     outline:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border:2px solid #d6c2a3;
+    border-color: burlywood;
+    box-shadow: 0 0 0 3px rgba(221, 179, 132, 0.92);
 }
 
 
-button{
+button,input[type="submit"]{
     width:100%;
     padding:14px;
     border:none;
     border-radius: 25px;
-    color:white;
+    background: #c9b090;
+    color:black;
     cursor:pointer;
+    transition: all 0.25s ease;
+}
+
+button:hover,input[type="submit"]{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(138, 87, 25, 0.3);
+}
+
+
+button:active,input[type="submit"]{
+    transform: scale(0.98);
 }
 
 
@@ -377,7 +395,6 @@ select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-
     width: 100%;
     padding: 12px 40px 12px 15px;
     font-size: 16px;

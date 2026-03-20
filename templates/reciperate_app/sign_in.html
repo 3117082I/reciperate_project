@@ -6,18 +6,17 @@
 {% endblock %}
 
 {% block body_block %}
-        <header class= "signHeader">
+        <header class= "formHeader">
             <h1>Sign In</h1>
         </header>
     <div class="form_container">
         <form method="post" action="{% url 'reciperate:sign_in' %}">
             {% csrf_token %}
             <div class="form_group">
-            Username: <input type="text" name="username" size="50" />
+                Username: <input type="text" name="username" size="50" />
             </div>
-            <br />
             <div class="form_group">
-            Password: <input type="password" name="password" size="50" />
+                Password: <input type="password" name="password" size="50" />
             </div>
             {% if error %}
                 <span class="error">{{ error }}</span>
