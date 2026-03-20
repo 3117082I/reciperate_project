@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block body_block %}
-<header class="signHeader">
+<header class="formHeader">
     <h1>Sign Up</h1>
 </header>
     <div class="form_container">
@@ -18,14 +18,12 @@
                     <span class="error">{{ form.username.errors }} </span>
                 {% endif %}
             </div>
-            <br />
             <div class="form_group">
                 Password: <input type="password" name="password" size="50" />
                 {% if form.password.errors %}
                     <span class="error">{{ form.password.errors }}</span>
                 {% endif %}
             </div>
-            <br />
             <input type="submit" value="Sign Up" />
         </form>
     </div>

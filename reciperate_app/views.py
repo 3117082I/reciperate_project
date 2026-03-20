@@ -1,14 +1,11 @@
 from django.shortcuts import render, redirect
-from django.template import loader
-from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.http import require_http_methods
 from .forms import RecipeForm, SignUpForm
 from .models import Recipe, Like
-from django.contrib.auth import authenticate, login, logout
-from django.http import JsonResponse
-from django.views.decorators.http import require_http_methods
 from .utils import render_recipe
 
 def breakfast(request):
@@ -55,10 +52,9 @@ def sign_in(request):
                 login(request, user)
                 return redirect(reverse('reciperate:home'))
             else:
-                return HttpResponse("Your account is disabled.")
+                return render(request, 'reciperate_app/sign_in.html', {'error': 'Your account is disabled.'})
         else:
-            print(f"Invalid login details: {username}, {password}")
-            return HttpResponse("Invalid login details supplied.")
+            return render(request, 'reciperate_app/sign_in.html', {'error': 'Invalid username or password. Please try again.'})
     else:
         return render(request, 'reciperate_app/sign_in.html')
 
