@@ -87,8 +87,8 @@ def populate():
 
     egg_muffins = create_recipe(
         user=hafsa,
-        name='Breakfast Egg Muffins',
-        url='https://www.allrecipes.com/recipe/222586/egg-muffins/',
+        name='Easy Breakfast Egg Muffins',
+        url='https://www.allrecipes.com/recipe/278443/easy-breakfast-egg-muffins/',
         image='recipe_images/egg_muffins.jpg',
         category='breakfast'
     )
@@ -104,7 +104,7 @@ def populate():
     fruit_yogurt = create_recipe(
         user=nadia,
         name='Fruit & Yogurt Bowl',
-        url='https://www.simplyrecipes.com/yogurt-parfait-recipe-5180007',
+        url='https://www.modernhoney.com/greek-yogurt-breakfast-bowls-toppings/',
         image='recipe_images/fruit_yogurt.jpg',
         category='breakfast'
     )
