@@ -154,12 +154,6 @@ class CSSTests(TestCase):
         self.assertContains(response, "Lunch")
         self.assertContains(response, "Dinner")
 
-
-   # def test_recipe_grid_class_present(self):
-        #response = self.client.get(reverse('reciperate:breakfast'))
-
-        #self.assertContains(response, 'class="recipe_grid"')
-
     def test_recipe_card_class_present(self):
         response = self.client.get(reverse('reciperate:breakfast'))
 
@@ -195,13 +189,6 @@ class CSSTests(TestCase):
         response = self.client.get(reverse('reciperate:breakfast'))
 
         self.assertContains(response, "<select", html=False)
-
-    #def test_like_button_class_present_when_logged_in(self):
-        #self.client.login(username='username', password='password123')
-
-        #response = self.client.get(reverse('reciperate:breakfast'))
-
-        #self.assertContains(response, 'class="like_button"')
 
     def test_viewport_responsive_meta(self):
         response = self.client.get(reverse('reciperate:home'))
